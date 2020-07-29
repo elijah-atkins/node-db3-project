@@ -38,5 +38,16 @@ SELECT [order].id,
 --STRETCH
 --   In [SQL Try Editor at W3Schools.com](https://www.w3schools.com/Sql/tryit.asp?filename=trysql_select_top):
 --   Displays CategoryName and a new column called Count that shows how many products are in each category. Shows 8 records.
+SELECT Categories.CategoryName,
+       count(Products.CategoryID) 
+  FROM Categories
+       JOIN
+       Products ON Categories.CategoryID = Products.CategoryID
+ GROUP BY Categories.CategoryName;
 
 --   Display OrderID and a column called ItemCount that shows the total number of products placed on the order. Shows 196 records.
+
+SELECT O.OrderID,
+       O.Quantity AS ItemCount
+  FROM OrderDetails AS O
+ GROUP BY orderID;
